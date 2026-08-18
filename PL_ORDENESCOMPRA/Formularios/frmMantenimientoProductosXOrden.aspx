@@ -1,0 +1,52 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formularios/frmPrincipalMaster.Master" AutoEventWireup="true" CodeBehind="frmMantenimientoProductosXOrden.aspx.cs" Inherits="PL_ORDENESCOMPRA.Formularios.frmMantenimientoProductosXOrden" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb my-breadcrumb">
+        <li class="breadcrumb-item"><a href="frmPrincipal.aspx">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="frmConsultaOrdenes.aspx">Órdenes de Compra</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Mantenimiento de Productos x Orden de Compra</li>
+      </ol>
+    </nav>
+    <div class="welcome-msg pt-3 pb-4">
+      <h1>Hola <span class="text-primary" id="nombreUsuario"></span>, Bienvenido</h1>
+      <p id="emlUsuario"></p>
+    </div>
+
+    <div class="card card_border py-2 mb-4">
+		<div class="cards__heading">
+            <h3>Productos Disponibles<span></span></h3>
+        </div>
+        <div class="card-body">
+            <form action="javascript: asignaProductosXOrden()" method="post">
+               <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="cboProducto" class="input__label">Producto</label>
+                        <select id="cboProducto" class="form-control input-style">
+                            
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-style mt-4">Asignar</button>
+                <button type="button" class="btn btn-primary btn-style mt-4" onclick="javascript: regresar()">Regresar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="card card_border py-2 mb-4">
+		<div class="cards__heading">
+            <h3>Resultados de Búsqueda de Productos x Orden de Compra <span></span></h3>
+        </div>
+        <div class="card-body">
+            <table id="tblProductosXOrden">
+            <%--Aquí se carga el contenido dinámico de la tabla--%>
+            </table>
+        </div>
+    </div>
+
+    <script src="../JavaScript/ProductosXOrden.js"></script>
+</asp:Content>
